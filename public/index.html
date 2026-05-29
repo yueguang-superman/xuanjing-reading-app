@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>玄镜测算台</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace">
+        <aside class="sidebar" aria-label="输入面板">
+          <div class="brand-block">
+            <p class="eyebrow">Palm · Face · BaZi</p>
+            <h1>玄镜测算台</h1>
+            <p class="subcopy">娱乐测算 · 自省参考</p>
+          </div>
+
+          <form id="readingForm" class="input-stack">
+            <div class="field-grid">
+              <label>
+                <span>姓名</span>
+                <input id="name" name="name" type="text" placeholder="可留空" autocomplete="name" />
+              </label>
+              <label>
+                <span>性别</span>
+                <select id="gender" name="gender">
+                  <option value="未填写">未填写</option>
+                  <option value="女">女</option>
+                  <option value="男">男</option>
+                  <option value="其他">其他</option>
+                </select>
+              </label>
+              <label>
+                <span>出生日期</span>
+                <input id="birthDate" name="birthDate" type="date" required />
+              </label>
+              <label>
+                <span>出生时辰</span>
+                <select id="birthHour" name="birthHour" required>
+                  <option value="0">子时 23:00-00:59</option>
+                  <option value="1">丑时 01:00-02:59</option>
+                  <option value="3">寅时 03:00-04:59</option>
+                  <option value="5">卯时 05:00-06:59</option>
+                  <option value="7">辰时 07:00-08:59</option>
+                  <option value="9">巳时 09:00-10:59</option>
+                  <option value="11" selected>午时 11:00-12:59</option>
+                  <option value="13">未时 13:00-14:59</option>
+                  <option value="15">申时 15:00-16:59</option>
+                  <option value="17">酉时 17:00-18:59</option>
+                  <option value="19">戌时 19:00-20:59</option>
+                  <option value="21">亥时 21:00-22:59</option>
+                  <option value="23">子时 23:00-23:59</option>
+                </select>
+              </label>
+              <label class="wide-field">
+                <span>出生地</span>
+                <input id="birthplace" name="birthplace" type="text" placeholder="城市，可留空" autocomplete="address-level2" />
+              </label>
+            </div>
+
+            <div class="upload-grid">
+              <label class="upload-box" for="palmImage">
+                <input id="palmImage" type="file" accept="image/*" />
+                <span class="upload-title">手相照片</span>
+                <canvas id="palmPreview" width="360" height="240" aria-label="手相预览"></canvas>
+                <span id="palmStatus" class="upload-status">未选择</span>
+              </label>
+              <label class="upload-box" for="faceImage">
+                <input id="faceImage" type="file" accept="image/*" />
+                <span class="upload-title">面相照片</span>
+                <canvas id="facePreview" width="360" height="240" aria-label="面相预览"></canvas>
+                <span id="faceStatus" class="upload-status">未选择</span>
+              </label>
+            </div>
+
+            <button class="primary-action" type="submit">
+              <span>生成测算报告</span>
+            </button>
+            <p id="formMessage" class="form-message" role="status"></p>
+          </form>
+        </aside>
+
+        <section class="result-stage" aria-live="polite">
+          <div class="chart-panel">
+            <canvas id="energyCanvas" width="920" height="300" aria-label="五行能量图"></canvas>
+          </div>
+
+          <div id="emptyState" class="empty-state">
+            <p class="eyebrow">Report</p>
+            <h2>静候一签</h2>
+            <p>愿所问有回声，所行有方向。</p>
+          </div>
+
+          <div id="report" class="report hidden"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="/app.js" defer></script>
+  </body>
+</html>

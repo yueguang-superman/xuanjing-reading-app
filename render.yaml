@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: xuanjing-reading-app
+    env: node
+    plan: free
+    buildCommand: ""
+    startCommand: "node server.js"
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0

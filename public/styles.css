@@ -1,0 +1,405 @@
+:root {
+  --paper: #f7f4ec;
+  --panel: #ffffff;
+  --ink: #1f2428;
+  --muted: #66706a;
+  --line: #d9d4c7;
+  --green: #406b4e;
+  --red: #a84e3d;
+  --blue: #2f5f7a;
+  --gold: #b4853b;
+  --shadow: 0 22px 60px rgba(29, 31, 35, 0.1);
+  color-scheme: light;
+  font-family:
+    Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background:
+    linear-gradient(90deg, rgba(64, 107, 78, 0.08), transparent 34%),
+    linear-gradient(180deg, #fbfaf7 0%, var(--paper) 52%, #eee7da 100%);
+  color: var(--ink);
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+.app-shell {
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(320px, 430px) minmax(0, 1fr);
+  gap: 20px;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.sidebar,
+.result-stage {
+  min-height: calc(100vh - 40px);
+  border: 1px solid rgba(31, 36, 40, 0.08);
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: var(--shadow);
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: 28px;
+  border-radius: 8px;
+}
+
+.brand-block {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 22px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--red);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 8px;
+  font-size: clamp(2.1rem, 4vw, 3.5rem);
+  line-height: 0.98;
+  letter-spacing: 0;
+}
+
+h2 {
+  margin-bottom: 12px;
+  font-size: 1.75rem;
+  line-height: 1.12;
+  letter-spacing: 0;
+}
+
+h3 {
+  margin-bottom: 10px;
+  font-size: 1.03rem;
+  letter-spacing: 0;
+}
+
+.subcopy,
+.empty-state p,
+.report-card p,
+.pillars small,
+.form-message,
+.upload-status {
+  color: var(--muted);
+}
+
+.input-stack {
+  display: grid;
+  gap: 18px;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.wide-field {
+  grid-column: 1 / -1;
+}
+
+label span {
+  display: block;
+  margin-bottom: 7px;
+  color: #3c423f;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+input,
+select {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid #cfc8ba;
+  border-radius: 6px;
+  background: #fffdfa;
+  color: var(--ink);
+  padding: 0 12px;
+  outline: none;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(64, 107, 78, 0.18);
+}
+
+.upload-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.upload-box {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  min-height: 190px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(180, 133, 59, 0.12), transparent 46%),
+    #fffdfa;
+  padding: 12px;
+  cursor: pointer;
+}
+
+.upload-box input {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  opacity: 0;
+}
+
+.upload-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  font-size: 0.92rem;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+}
+
+.upload-box canvas {
+  height: 128px;
+  border-radius: 6px;
+  background:
+    linear-gradient(90deg, rgba(47, 95, 122, 0.08) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(47, 95, 122, 0.08) 1px, transparent 1px),
+    #f8f3e8;
+  background-size: 18px 18px;
+}
+
+.primary-action {
+  min-height: 48px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--ink);
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.primary-action:hover {
+  background: #30373d;
+}
+
+.primary-action:disabled {
+  background: #8d918d;
+  cursor: wait;
+}
+
+.form-message {
+  min-height: 20px;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.result-stage {
+  overflow: hidden;
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(47, 95, 122, 0.08), transparent 36%),
+    rgba(255, 255, 255, 0.82);
+}
+
+.chart-panel {
+  border-bottom: 1px solid var(--line);
+  background: #fdfbf5;
+  padding: 18px;
+}
+
+#energyCanvas {
+  height: 260px;
+}
+
+.empty-state {
+  max-width: 720px;
+  padding: 42px;
+}
+
+.empty-state h2 {
+  max-width: 520px;
+}
+
+.report {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+  padding: 22px;
+}
+
+.hidden {
+  display: none;
+}
+
+.report-card {
+  grid-column: span 6;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  padding: 20px;
+}
+
+.report-card.wide {
+  grid-column: 1 / -1;
+}
+
+.report-card.compact {
+  grid-column: span 4;
+}
+
+.report-card.accent-green {
+  border-top: 4px solid var(--green);
+}
+
+.report-card.accent-red {
+  border-top: 4px solid var(--red);
+}
+
+.report-card.accent-blue {
+  border-top: 4px solid var(--blue);
+}
+
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.pillar {
+  min-height: 106px;
+  border: 1px solid #e1dbce;
+  border-radius: 8px;
+  background: #fffdfa;
+  padding: 12px;
+}
+
+.pillar strong {
+  display: block;
+  margin: 6px 0;
+  color: var(--red);
+  font-size: 1.42rem;
+}
+
+.metric-list,
+.suggestion-list,
+.color-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.metric-item {
+  display: grid;
+  grid-template-columns: 54px 1fr 42px;
+  gap: 10px;
+  align-items: center;
+}
+
+.bar {
+  height: 9px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #ebe4d6;
+}
+
+.bar span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--green);
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.tag {
+  border: 1px solid #d8cfbf;
+  border-radius: 999px;
+  background: #fcf8ee;
+  padding: 6px 10px;
+  color: #4e534f;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+@media (max-width: 980px) {
+  .app-shell {
+    padding: 12px;
+  }
+
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar,
+  .result-stage {
+    min-height: auto;
+  }
+
+  .report-card,
+  .report-card.compact {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 620px) {
+  .sidebar,
+  .empty-state,
+  .report {
+    padding: 18px;
+  }
+
+  .field-grid,
+  .pillars {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 2.35rem;
+  }
+
+  .metric-item {
+    grid-template-columns: 48px 1fr 34px;
+  }
+}
